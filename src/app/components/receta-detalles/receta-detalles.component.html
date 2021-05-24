@@ -1,0 +1,42 @@
+
+<section id="productos" class="padded">
+  <div class="container m-topk" >
+    <h2>Tabla de contenido</h2>
+    <h3>{{frase}}</h3>
+    <p>Mostrar en una página datos de un servicio donde se muestren dattos con imágenes de una tabla maestra, y al hacer clic en un elemento deben mostrarse en la misma página el detalle, sólo texto en una tabla como detalle. Similar a ejercicio de tienda</p>
+    <div class="row">
+      <div class="col-md-8">
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Calorias (gr)</th>
+              <th>Proteinas (gr)</th>
+              <th>Grasas (gr)</th>
+              <th>Carbohidratos (gr)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let valor of detallesreceta" (click)="seleccionar(valor)"
+            [class.fila-seleccionada] = "valor === valorElegido">
+              <td>{{valor.nombre}}</td>
+              <td>{{valor.calorias}}</td>
+              <td>{{valor.proteina}}</td>
+              <td>{{valor.grasas}}</td>
+              <td>{{valor.corbohidratos}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-4" *ngIf="valorElegido">
+        <img src={{valorElegido.foto}} class="img-fluid" alt={{valorElegido.nombre}}>
+        <h3>Genio elegido</h3>
+        <h4>{{valorElegido.nombre}}</h4>
+        <p>{{valorElegido.calorias}} <br> {{valorElegido.proteina}}</p>
+      </div>
+
+    </div>
+  </div>
+</section>

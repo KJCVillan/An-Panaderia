@@ -1,1 +1,35 @@
-<p>recetas works!</p>
+<div class="container m-topk">
+<div>
+  <h2>Recetas saludables a tu alcance 🍖🥑</h2>
+  <span>Las mejores recetas, para que cuides tu salud.</span> <br>
+  <small>servicio externo gratuito https://api.spoonacular.com</small>
+  <p>Empleando un servicio web gratuito o que ustedes hayan creado debe mostrarse datos en una tabla y de acuerdo a la fila seccionada, en otra página debe mostrarse solo los datos de la fila seleccionada. (6 puntos)</p>
+</div>
+
+<hr>
+
+<table class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Calorias</th>
+      <th>Proteina</th>
+      <th>Grasas</th>
+      <th>Carbohidratos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let filaRecetas of listaRecetas"
+        [routerLink] ="['/recetadetalle/' + filaRecetas.title]">
+      <td>{{filaRecetas.id}}</td>
+      <td>{{filaRecetas.title}}</td>
+      <td>{{filaRecetas.calories}}</td>
+      <td>{{filaRecetas.protein}}</td>
+      <td>{{filaRecetas.fat}}</td>
+      <td>{{filaRecetas.carbs}}</td>
+    </tr>
+  </tbody>
+  <caption>Descripcion</caption>
+</table>
+</div>
